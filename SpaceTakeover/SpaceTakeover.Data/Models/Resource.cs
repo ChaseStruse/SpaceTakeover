@@ -12,16 +12,15 @@ namespace SpaceTakeover.Data.Models
 
         public Resource()
         {
-            name = "Test";
-            value = 1.0m;
-            strength = 100;
+            this.name = "Test";
+            this.value = 1.0m;
+            this.strength = 100;
         }
-
-        public Resource(string _name, int _value, int _strength)
+        public Resource(string name, decimal value, int strength)
         {
-            name = _name;
-            value = _value;
-            strength = _strength;
+            this.name = name;
+            this.value = value;
+            this.strength = strength;
         }
 
         public void setName(string _name)
