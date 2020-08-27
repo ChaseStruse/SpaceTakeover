@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTakeover", "SpaceTakeover\SpaceTakeover.csproj", "{0A060B11-8993-4BC5-95F0-EA9E49A66E0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTakeoverTests", "SpaceTakeoverTests\SpaceTakeoverTests.csproj", "{4B51A590-7FA5-4E85-958A-6CDA6D28D4E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTakeover.Tests", "SpaceTakeoverTests\SpaceTakeover.Tests.csproj", "{4B51A590-7FA5-4E85-958A-6CDA6D28D4E5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpaceTakeover.Data", "SpaceTakeover.Data\SpaceTakeover.Data.csproj", "{A5C6FBE0-7E18-4C23-B0C0-CEC4BBEA8A47}"
 EndProject

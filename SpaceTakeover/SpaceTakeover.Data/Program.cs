@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpaceTakeover.Data
+namespace SpaceTakeover
 {
     class Program
     {

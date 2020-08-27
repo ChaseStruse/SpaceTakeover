@@ -1,0 +1,13 @@
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\obj\Debug\netcoreapp3.1\SpaceTakeover.Data.csprojAssemblyReference.cache
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\obj\Debug\netcoreapp3.1\SpaceTakeover.Data.AssemblyInfoInputs.cache
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\obj\Debug\netcoreapp3.1\SpaceTakeover.Data.AssemblyInfo.cs
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\obj\Debug\netcoreapp3.1\SpaceTakeover.Data.csproj.CoreCompileInputs.cache
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\bin\Debug\netcoreapp3.1\SpaceTakeover.Data.exe
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\bin\Debug\netcoreapp3.1\SpaceTakeover.Data.deps.json
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\bin\Debug\netcoreapp3.1\SpaceTakeover.Data.runtimeconfig.json
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\bin\Debug\netcoreapp3.1\SpaceTakeover.Data.runtimeconfig.dev.json
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\bin\Debug\netcoreapp3.1\SpaceTakeover.Data.dll
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\bin\Debug\netcoreapp3.1\SpaceTakeover.Data.pdb
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\obj\Debug\netcoreapp3.1\SpaceTakeover.Data.dll
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\obj\Debug\netcoreapp3.1\SpaceTakeover.Data.pdb
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover.Data\obj\Debug\netcoreapp3.1\SpaceTakeover.Data.genruntimeconfig.cache

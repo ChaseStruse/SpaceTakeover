@@ -1225,6 +1225,26 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "SpaceTakeover/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/SpaceTakeover.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SpaceTakeover.dll": {}
+        }
+      },
+      "SpaceTakeover.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/SpaceTakeover.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SpaceTakeover.Data.dll": {}
+        }
       }
     }
   },
@@ -4615,12 +4635,24 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "SpaceTakeover/1.0.0": {
+      "type": "project",
+      "path": "../SpaceTakeover/SpaceTakeover.csproj",
+      "msbuildProject": "../SpaceTakeover/SpaceTakeover.csproj"
+    },
+    "SpaceTakeover.Data/1.0.0": {
+      "type": "project",
+      "path": "../SpaceTakeover.Data/SpaceTakeover.Data.csproj",
+      "msbuildProject": "../SpaceTakeover.Data/SpaceTakeover.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.NET.Test.Sdk >= 16.7.1",
       "NUnit3TestAdapter >= 3.17.0",
+      "SpaceTakeover >= 1.0.0",
+      "SpaceTakeover.Data >= 1.0.0",
       "nunit >= 3.12.0"
     ]
   },
@@ -4649,7 +4681,14 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Developer\\C#\\SpaceTakeover\\SpaceTakeover\\SpaceTakeover.Data\\SpaceTakeover.Data.csproj": {
+              "projectPath": "D:\\Developer\\C#\\SpaceTakeover\\SpaceTakeover\\SpaceTakeover.Data\\SpaceTakeover.Data.csproj"
+            },
+            "D:\\Developer\\C#\\SpaceTakeover\\SpaceTakeover\\SpaceTakeover\\SpaceTakeover.csproj": {
+              "projectPath": "D:\\Developer\\C#\\SpaceTakeover\\SpaceTakeover\\SpaceTakeover\\SpaceTakeover.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
