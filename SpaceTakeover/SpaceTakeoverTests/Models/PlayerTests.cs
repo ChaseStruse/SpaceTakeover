@@ -21,5 +21,15 @@ namespace SpaceTakeoverTests
             string actual = player.getName();
             Assert.AreEqual(name, actual);
         }
+
+        [Test]
+        public void GivenPlayerStaminaSetStaminaAndGetStaminaWorkProperly()
+        {
+            int stamina = 150;
+            player.setStamina(stamina);
+            int actual = player.getStamina();
+            Assert.AreEqual(stamina, actual);
+        }
+        
     }
 }
