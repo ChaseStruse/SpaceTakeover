@@ -3,15 +3,12 @@ using SpaceTakeover.Models;
 
 namespace SpaceTakeoverTests
 {
-    public class Tests
+    public class PlayerTests
     {
         private Player player;
 
         [SetUp]
-        public void Setup()
-        {
-            this.player = new Player();
-        }
+        public void Setup() => this.player = new Player();
 
         [Test]
         public void GivenPlayerNameSetNameAndGetNameWorkProperly()
@@ -57,6 +54,5 @@ namespace SpaceTakeoverTests
             int actual = player.getDefense();
             Assert.AreEqual(defense, actual);
         }
-
     }
 }

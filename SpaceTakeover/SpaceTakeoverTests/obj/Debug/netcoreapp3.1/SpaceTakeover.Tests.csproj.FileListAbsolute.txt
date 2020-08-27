@@ -1,7 +1,3 @@
-D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.csprojAssemblyReference.cache
-D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.AssemblyInfoInputs.cache
-D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.AssemblyInfo.cs
-D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.csproj.CoreCompileInputs.cache
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\bin\Debug\netcoreapp3.1\testhost.dll
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\bin\Debug\netcoreapp3.1\SpaceTakeover.Data.exe
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\bin\Debug\netcoreapp3.1\SpaceTakeover.exe
@@ -98,6 +94,10 @@ D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\bin\Debug\netcore
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\bin\Debug\netcoreapp3.1\SpaceTakeover.dll
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\bin\Debug\netcoreapp3.1\SpaceTakeover.Data.pdb
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\bin\Debug\netcoreapp3.1\SpaceTakeover.pdb
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.csprojAssemblyReference.cache
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.AssemblyInfoInputs.cache
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.AssemblyInfo.cs
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.csproj.CoreCompileInputs.cache
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.csproj.CopyComplete
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.dll
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeoverTests\obj\Debug\netcoreapp3.1\SpaceTakeover.Tests.pdb

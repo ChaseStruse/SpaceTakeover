@@ -17,6 +17,17 @@ namespace SpaceTakeover.Models
             name = "test";
             stamina = 100;
             health = 100;
+            attack = 10;
+            defense = 10;
+        }
+
+        public Player(string _name, int _stamina, int _health, int _attack, int _defense)
+        {
+            name = _name;
+            stamina = _stamina;
+            health = _health;
+            attack = _attack;
+            defense = _defense;
         }
 
         public void setName(string _name)
