@@ -33,5 +33,15 @@ namespace SpaceTakeover.Models
         {
             return stamina;
         }
+
+        public void setHealth(int _health)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int getHealth()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
