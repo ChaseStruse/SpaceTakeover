@@ -8,11 +8,13 @@ namespace SpaceTakeover.Models
     {
         protected string name;
         protected int stamina;
+        protected int health;
 
         public Player()
         {
             name = "test";
             stamina = 100;
+            health = 100;
         }
 
         public void setName(string _name)
@@ -36,12 +38,12 @@ namespace SpaceTakeover.Models
 
         public void setHealth(int _health)
         {
-            throw new NotImplementedException();
+            health = _health;
         }
 
         public int getHealth()
         {
-            throw new NotImplementedException();
+            return health;
         }
     }
 }
