@@ -6,9 +6,11 @@ namespace SpaceTakeover.Models
 {
     public class Player
     {
-        protected string name;
-        protected int stamina;
-        protected int health;
+        private string name;
+        private int stamina;
+        private int health;
+        private int attack;
+        private int defense;
 
         public Player()
         {
@@ -44,6 +46,26 @@ namespace SpaceTakeover.Models
         public int getHealth()
         {
             return health;
+        }
+
+        public void setAttack(int _attack)
+        {
+            attack = _attack;
+        }
+
+        public int getAttack()
+        {
+            return attack;
+        }
+
+        public void setDefense(int _defense)
+        {
+            defense = _defense;
+        }
+
+        public int getDefense()
+        {
+            return defense; 
         }
     }
 }
