@@ -7,7 +7,7 @@ namespace SpaceTakeover.Data.Services
 {
     public class InventoryService
     {
-        public void addResourceToInventory(Inventory inventory, Resource resource)
+        public void AddResourceToInventory(Inventory inventory, Resource resource)
         {
             Dictionary<string, Resource> currentInventory = inventory.getResources();
             string resourceName = resource.getName();
@@ -18,7 +18,23 @@ namespace SpaceTakeover.Data.Services
             }
             else
             {
-                inventory.addResource(resource);
+                inventory.addNewResource(resource);
+            }
+        }
+
+        public int ReduceQuantityFromInventory(Inventory inventory, Resource resource, int quantity)
+        {
+            int currentQuantity = resource.getQuantity();
+            int quantityAfterSubtraction = currentQuantity - quantity;
+
+            if(quantityAfterSubtraction >= 0)
+            {
+                resource.setQuantity(quantityAfterSubtraction);
+                return quantity;
+            }
+            else
+            {
+                return 0;
             }
         }
     }

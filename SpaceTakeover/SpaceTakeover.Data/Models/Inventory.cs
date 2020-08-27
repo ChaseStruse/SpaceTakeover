@@ -42,13 +42,24 @@ namespace SpaceTakeover.Data.Models
             return maxSize;
         }
 
-        public void addResource(Resource resource)
+        public void addNewResource(Resource resource)
         {
             resources.Add(resource.getName(), resource);
         }
         public Dictionary<string, Resource> getResources()
         {
             return resources;
+        }
+        public Resource getSpecificResource(string name)
+        {
+            if (this.getResources().ContainsKey(name))
+            {
+                return this.getResources()[name];
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

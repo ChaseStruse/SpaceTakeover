@@ -10,3 +10,4 @@ D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover\obj\Debug\netcoreapp3.
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover\obj\Debug\netcoreapp3.1\SpaceTakeover.dll
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover\obj\Debug\netcoreapp3.1\SpaceTakeover.pdb
 D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover\obj\Debug\netcoreapp3.1\SpaceTakeover.genruntimeconfig.cache
+D:\Developer\C#\SpaceTakeover\SpaceTakeover\SpaceTakeover\obj\Debug\netcoreapp3.1\SpaceTakeover.csprojAssemblyReference.cache

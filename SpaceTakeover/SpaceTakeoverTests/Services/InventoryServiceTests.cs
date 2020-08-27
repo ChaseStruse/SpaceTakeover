@@ -24,14 +24,27 @@ namespace SpaceTakeoverTests
         public void GivenResourceThatCurrentlyExistsInInventoryAddResourceToInventoryUpdatesQuantity()
         {
             resource.setQuantity(15);
-            _inventoryService.addResourceToInventory(inventory, resource);
+            _inventoryService.AddResourceToInventory(inventory, resource);
             Resource resource2 = new Resource();
             resource2.setQuantity(25);
-            _inventoryService.addResourceToInventory(inventory, resource2);
+            _inventoryService.AddResourceToInventory(inventory, resource2);
             int expected = 40;
             int actual = inventory.getResources()[resource.getName()].getQuantity();
             Assert.AreEqual(expected, actual);
 
+        }
+
+        [Test]
+        public void GivenExistingInventoryAndResourceReduceQuantityFromInventoryPerformsCorrectly()
+        {
+            int reduceQuantity = 5;
+            resource.setQuantity(15);
+            _inventoryService.AddResourceToInventory(inventory, resource);
+            Resource resourcePulledFromInventory = new Resource();
+            resourcePulledFromInventory.setQuantity(_inventoryService.ReduceQuantityFromInventory(inventory, resource, reduceQuantity));
+            int expected = 10;
+            int actual = inventory.getResources()[resource.getName()].getQuantity();
+            Assert.AreEqual(expected, actual);
         }
     }
 }
