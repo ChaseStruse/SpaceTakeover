@@ -37,9 +37,11 @@ namespace SpaceTakeoverTests
         public void GivenResourceGetResourceReturnsProperly()
         {
             Resource resource = new Resource();
-            List<Resource> resourceList = new List<Resource>() { resource };
-            Inventory _inventory = new Inventory(10, 100, resourceList);
-            Assert.AreEqual(resourceList, _inventory.getResources());
+            Dictionary<string, Resource> resourceList = new Dictionary<string, Resource>() {
+                { resource.getName(),resource }
+            };
+            inventory.addResource(resource);
+            Assert.AreEqual(resourceList, inventory.getResources());
 
         }
     }

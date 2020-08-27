@@ -9,18 +9,21 @@ namespace SpaceTakeover.Data.Models
         private string name;
         private decimal value;
         private int strength;
+        private int quantity;
 
         public Resource()
         {
             this.name = "Test";
             this.value = 1.0m;
             this.strength = 100;
+            this.quantity = 0;
         }
-        public Resource(string name, decimal value, int strength)
+        public Resource(string name, decimal value, int strength, int quantity)
         {
             this.name = name;
             this.value = value;
             this.strength = strength;
+            this.quantity = quantity;
         }
 
         public void setName(string _name)
@@ -48,6 +51,19 @@ namespace SpaceTakeover.Data.Models
         public int getStrength()
         {
             return strength;
+        }
+
+        public void setQuantity(int _quantity)
+        {
+            quantity = _quantity;
+        }
+        public int getQuantity()
+        {
+            return quantity;
+        }
+        public void addToCurrentQuantity(int _quantity)
+        {
+            quantity += _quantity;
         }
     }
 }

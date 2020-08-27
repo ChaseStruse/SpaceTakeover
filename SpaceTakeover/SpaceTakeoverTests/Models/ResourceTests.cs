@@ -40,5 +40,26 @@ namespace SpaceTakeoverTests
             int actual = resource.getStrength();
             Assert.AreEqual(strength, actual);
         }
+
+        [Test]
+        public void GivenQuantityGetAndSetMethodsReturnProperly()
+        {
+            int quantity = 10;
+            resource.setQuantity(quantity);
+            int actual = resource.getQuantity();
+            Assert.AreEqual(quantity, actual);
+        }
+
+        [Test]
+        public void GivenQuantityAddToCurrentQuantityCalculatesProperly()
+        {
+            int currentQuantity = 10;
+            int addToQuantity = 20;
+            int expected = currentQuantity + addToQuantity;
+            resource.setQuantity(currentQuantity);
+            resource.addToCurrentQuantity(addToQuantity);
+            int actual = resource.getQuantity();
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

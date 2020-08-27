@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpaceTakeover.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,6 +12,7 @@ namespace SpaceTakeover.Models
         private int health;
         private int attack;
         private int defense;
+        private Inventory inventory;
 
         public Player()
         {
@@ -19,6 +21,7 @@ namespace SpaceTakeover.Models
             health = 100;
             attack = 10;
             defense = 10;
+            inventory = new Inventory();
         }
 
         public Player(string _name, int _stamina, int _health, int _attack, int _defense)

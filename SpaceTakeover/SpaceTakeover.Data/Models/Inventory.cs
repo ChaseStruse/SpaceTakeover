@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security;
 using System.Text;
 
 namespace SpaceTakeover.Data.Models
@@ -8,15 +9,15 @@ namespace SpaceTakeover.Data.Models
     {
         private int size;
         private int maxSize;
-        List<Resource> resources;
+        Dictionary<string, Resource> resources;
 
         public Inventory()
         {
             size = 10;
             maxSize = 100;
-            resources = new List<Resource>();
+            resources = new Dictionary<string, Resource>();
         }
-        public Inventory(int size, int maxSize, List<Resource> resources)
+        public Inventory(int size, int maxSize, Dictionary<string, Resource> resources)
         {
             this.size = size;
             this.maxSize = maxSize;
@@ -41,7 +42,11 @@ namespace SpaceTakeover.Data.Models
             return maxSize;
         }
 
-        public List<Resource> getResources()
+        public void addResource(Resource resource)
+        {
+            resources.Add(resource.getName(), resource);
+        }
+        public Dictionary<string, Resource> getResources()
         {
             return resources;
         }
