@@ -54,5 +54,15 @@ namespace SpaceTakeoverTests
             int actual = player.getDefense();
             Assert.AreEqual(defense, actual);
         }
+
+        [Test]
+        public void GivenPlayerMiningSetAndGetPlayerAttackWorkProperly()
+        {
+            int mining = 100;
+            player.setMining(mining);
+            int actual = player.getMining();
+            Assert.AreEqual(mining, actual);
+        }
+
     }
 }

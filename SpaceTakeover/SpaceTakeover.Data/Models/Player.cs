@@ -12,6 +12,7 @@ namespace SpaceTakeover.Models
         private int health;
         private int attack;
         private int defense;
+        private int mining;
         private Inventory inventory;
 
         public Player()
@@ -21,16 +22,18 @@ namespace SpaceTakeover.Models
             health = 100;
             attack = 10;
             defense = 10;
+            mining = 10;
             inventory = new Inventory();
         }
 
-        public Player(string _name, int _stamina, int _health, int _attack, int _defense)
+        public Player(string _name, int _stamina, int _health, int _attack, int _defense, int _mining)
         {
             name = _name;
             stamina = _stamina;
             health = _health;
             attack = _attack;
             defense = _defense;
+            mining = _mining;
         }
 
         public void setName(string _name)
@@ -80,6 +83,20 @@ namespace SpaceTakeover.Models
         public int getDefense()
         {
             return defense; 
+        }
+
+        public void setMining(int _mining)
+        {
+            mining = _mining;
+        }
+        public int getMining()
+        {
+            return mining;
+        }
+
+        public Inventory getInventory()
+        {
+            return inventory;
         }
     }
 }

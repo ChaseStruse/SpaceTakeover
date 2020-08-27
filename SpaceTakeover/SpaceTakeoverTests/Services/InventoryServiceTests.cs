@@ -1,8 +1,6 @@
 ﻿using NUnit.Framework;
 using SpaceTakeover.Data.Models;
 using SpaceTakeover.Data.Services;
-using SpaceTakeover.Models;
-using System.Collections.Generic;
 
 namespace SpaceTakeoverTests
 {
