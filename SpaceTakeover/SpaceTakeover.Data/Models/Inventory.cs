@@ -7,9 +7,9 @@ namespace SpaceTakeover.Data.Models
 {
     public class Inventory
     {
-        private int size;
-        private int maxSize;
-        Dictionary<string, Resource> resources;
+        public int size { get; set; }
+        public int maxSize { get; set; }
+        public Dictionary<string, Resource> resources { get; set; }
 
         public Inventory()
         {
@@ -22,44 +22,6 @@ namespace SpaceTakeover.Data.Models
             this.size = size;
             this.maxSize = maxSize;
             this.resources = resources;
-        }
-
-        public void setSize(int _size)
-        {
-            size = _size;
-        }
-        public int getSize()
-        {
-            return size;
-        }
-
-        public void setMaxSize(int _maxSize)
-        {
-            maxSize = _maxSize;
-        }
-        public int getMaxSize()
-        {
-            return maxSize;
-        }
-
-        public void addNewResource(Resource resource)
-        {
-            resources.Add(resource.getName(), resource);
-        }
-        public Dictionary<string, Resource> getResources()
-        {
-            return resources;
-        }
-        public Resource getSpecificResource(string name)
-        {
-            if (this.getResources().ContainsKey(name))
-            {
-                return this.getResources()[name];
-            }
-            else
-            {
-                return null;
-            }
         }
     }
 }
