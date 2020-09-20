@@ -17,16 +17,16 @@ namespace SpaceTakeover.Tests.Services
         {
             resourceService = new ResourceService();
             player = new Player();
-            inventory = player.getInventory();
+            inventory = player.inventory;
             resource = new Resource();
         }
 
         [Test]
         public void GivenResourceToMineCorrectAmountIsReturned()
         {
-            resource.setStrength(10);
-            resource.setQuantity(100);
-            player.setMining(5);
+            resource.strength = 10;
+            resource.quantity = 100;
+            player.mining = 5;
             
             int actual = resourceService.mineResource(resource, player);
             int expected = 50;
