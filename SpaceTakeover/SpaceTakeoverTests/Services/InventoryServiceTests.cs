@@ -21,13 +21,12 @@ namespace SpaceTakeoverTests
         [Test]
         public void GivenResourceThatCurrentlyExistsInInventoryAddResourceToInventoryUpdatesQuantity()
         {
-            resource.setQuantity(15);
+            resource.quantity = 15;
             _inventoryService.AddResourceToInventory(inventory, resource);
-            Resource resource2 = new Resource();
-            resource2.setQuantity(25);
-            _inventoryService.AddResourceToInventory(inventory, resource2);
+            resource.quantity = 25;
+            _inventoryService.AddResourceToInventory(inventory, resource);
             int expected = 40;
-            int actual = inventory.getResources()[resource.getName()].getQuantity();
+            int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);
 
         }
@@ -36,12 +35,12 @@ namespace SpaceTakeoverTests
         public void GivenExistingInventoryAndResourceReduceQuantityFromInventoryPerformsCorrectly()
         {
             int reduceQuantity = 5;
-            resource.setQuantity(15);
+            resource.quantity = 15;
             _inventoryService.AddResourceToInventory(inventory, resource);
             Resource resourcePulledFromInventory = new Resource();
-            resourcePulledFromInventory.setQuantity(_inventoryService.ReduceQuantityFromInventory(inventory, resource, reduceQuantity));
+            _inventoryService.ReduceQuantityFromInventory(inventory, resource, reduceQuantity);
             int expected = 10;
-            int actual = inventory.getResources()[resource.getName()].getQuantity();
+            int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);
         }
     }

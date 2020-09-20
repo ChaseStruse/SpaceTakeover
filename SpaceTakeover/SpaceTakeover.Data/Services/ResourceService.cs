@@ -10,12 +10,12 @@ namespace SpaceTakeover.Data.Services
     {
         public int mineResource(Resource resourceToMine, Player player)
         {
-            int playerMining = player.getMining();
-            int resourceStrength = resourceToMine.getStrength();
+            int playerMining = player.mining;
+            int resourceStrength = resourceToMine.strength;
             int difference = resourceStrength - playerMining;
-            int availableQuantity = resourceToMine.getQuantity();
+            int availableQuantity = resourceToMine.quantity;
 
-            if (difference <= 0) return resourceToMine.getQuantity();
+            if (difference <= 0) return resourceToMine.quantity;
 
             else
             {

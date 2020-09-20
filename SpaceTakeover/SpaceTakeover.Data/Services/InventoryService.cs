@@ -9,33 +9,33 @@ namespace SpaceTakeover.Data.Services
     {
         public void AddResourceToInventory(Inventory inventory, Resource resource)
         {
-            Dictionary<string, Resource> currentInventory = inventory.getResources();
-            string resourceName = resource.getName();
+            Dictionary<string, Resource> currentInventory = inventory.resources;
+            string resourceName = resource.name;
 
             if (currentInventory.ContainsKey(resourceName))
             {
-                currentInventory[resourceName].addToCurrentQuantity(resource.getQuantity());
+                //currentInventory[resourceName].addToCurrentQuantity(resource.quantity);
             }
             else
             {
-                inventory.addNewResource(resource);
+                //inventory.addNewResource(resource);
             }
         }
 
-        public int ReduceQuantityFromInventory(Inventory inventory, Resource resource, int quantity)
+        public bool ReduceQuantityFromInventory(Inventory inventory, Resource resource, int quantity)
         {
-            int currentQuantity = resource.getQuantity();
+            int currentQuantity = resource.quantity;
             int quantityAfterSubtraction = currentQuantity - quantity;
+
+            bool success = false;
 
             if(quantityAfterSubtraction >= 0)
             {
-                resource.setQuantity(quantityAfterSubtraction);
-                return quantity;
+                resource.quantity = quantityAfterSubtraction;
+                success = true;
             }
-            else
-            {
-                return 0;
-            }
+
+            return success;
         }
     }
 }
