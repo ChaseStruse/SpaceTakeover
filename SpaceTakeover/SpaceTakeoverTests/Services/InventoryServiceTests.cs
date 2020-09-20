@@ -37,11 +37,10 @@ namespace SpaceTakeoverTests
         [Test]
         public void GivenExistingInventoryAndResourceReduceQuantityFromInventoryPerformsCorrectly()
         {
-            int reduceQuantity = 5;
+            int reduceQuantityBy = 5;
             resource.quantity = 15;
             _inventoryService.AddResourceToInventory(inventory, resource);
-            Resource resourcePulledFromInventory = new Resource();
-            _inventoryService.ReduceQuantityFromInventory(inventory, resource, reduceQuantity);
+            _inventoryService.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
             int expected = 10;
             int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);

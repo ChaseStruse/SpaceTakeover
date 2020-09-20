@@ -20,16 +20,16 @@ namespace SpaceTakeover.Data.Services
             }
         }
 
-        public bool ReduceQuantityFromInventory(Inventory inventory, Resource resource, int quantity)
+        public bool ReduceQuantityFromInventory(Inventory inventory, string resourceName, int quantity)
         {
-            int currentQuantity = resource.quantity;
+            int currentQuantity = inventory.resources[resourceName].quantity;
             int quantityAfterSubtraction = currentQuantity - quantity;
 
             bool success = false;
 
             if(quantityAfterSubtraction >= 0)
             {
-                resource.quantity = quantityAfterSubtraction;
+                inventory.resources[resourceName].quantity = quantityAfterSubtraction;
                 success = true;
             }
 
