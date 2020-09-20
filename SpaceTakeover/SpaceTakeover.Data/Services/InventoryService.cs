@@ -9,16 +9,14 @@ namespace SpaceTakeover.Data.Services
     {
         public void AddResourceToInventory(Inventory inventory, Resource resource)
         {
-            Dictionary<string, Resource> currentInventory = inventory.resources;
-            string resourceName = resource.name;
 
-            if (currentInventory.ContainsKey(resourceName))
+            if (inventory.resources.ContainsKey(resource.name))
             {
-                //currentInventory[resourceName].addToCurrentQuantity(resource.quantity);
+                inventory.resources[resource.name].quantity += resource.quantity;
             }
             else
             {
-                //inventory.addNewResource(resource);
+                inventory.resources.Add(resource.name, resource);
             }
         }
 

@@ -9,6 +9,7 @@ namespace SpaceTakeoverTests
         private InventoryService _inventoryService;
         private Inventory inventory;
         private Resource resource;
+        private Resource resource2;
 
         [SetUp]
         public void Setup()
@@ -16,6 +17,7 @@ namespace SpaceTakeoverTests
             this._inventoryService = new InventoryService();
             this.inventory = new Inventory();
             this.resource = new Resource();
+            this.resource2 = new Resource();
         }
 
         [Test]
@@ -23,8 +25,9 @@ namespace SpaceTakeoverTests
         {
             resource.quantity = 15;
             _inventoryService.AddResourceToInventory(inventory, resource);
-            resource.quantity = 25;
-            _inventoryService.AddResourceToInventory(inventory, resource);
+            resource2.name = resource.name;
+            resource2.quantity = 25;
+            _inventoryService.AddResourceToInventory(inventory, resource2);
             int expected = 40;
             int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);
