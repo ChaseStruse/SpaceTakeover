@@ -29,6 +29,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsFalse(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
 
         [Test]
@@ -44,6 +45,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
 
         [Test]
@@ -58,6 +60,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
 
         [Test]
@@ -72,6 +75,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
 
         [Test]
@@ -86,6 +90,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
 
         [Test]
@@ -100,6 +105,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
 
         [Test]
@@ -114,6 +120,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
 
         [Test]
@@ -128,6 +135,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
 
         [Test]
@@ -142,6 +150,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
 
         [Test]
@@ -156,6 +165,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsFalse(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
 
         [Test]
@@ -171,6 +181,7 @@ namespace SpaceTakeover.Tests.Services
 
             Assert.AreEqual(expected, actual);
             Assert.IsFalse(success);
+            Assert.AreEqual(0, player.timeToSpendOnTask);
         }
     }
 }
