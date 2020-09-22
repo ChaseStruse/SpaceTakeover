@@ -157,5 +157,21 @@ namespace SpaceTakeover.Tests.Services
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
         }
+
+        [Test]
+        public void GivenPlayerStaminaLessThanRequiredStaminaSuccessIsFalseAndQuantityIsUnchanged()
+        {
+            Player player = new Player();
+            player.stamina = 10;
+
+            int timeSpent = 8;
+
+            bool success = sut.ReduceStamina(player, timeSpent);
+            int actual = player.stamina;
+            int expected = 10;
+
+            Assert.AreEqual(expected, actual);
+            Assert.IsFalse(success);
+        }
     }
 }
