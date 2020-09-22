@@ -9,7 +9,7 @@ namespace SpaceTakeover.Data.Services
     {
         public int ReduceStamina(Player player)
         {
-            return 1;
+            return player.stamina / 2;
         }
     }
 }
