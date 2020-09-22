@@ -47,7 +47,7 @@ namespace SpaceTakeover.Tests.Services
         }
 
         [Test]
-        public void GivenTimeSpentOfTwoStaminaIsNotReducedAndSuccessIsFalse()
+        public void GivenTimeSpentOfTwoStaminaIsReducedAndSuccessIsTrue()
         {
             Player player = new Player();
             player.stamina = 100;
@@ -57,6 +57,22 @@ namespace SpaceTakeover.Tests.Services
             bool success = sut.ReduceStamina(player, timeSpent);
             int actual = player.stamina;
             int expected = 75;
+
+            Assert.AreEqual(expected, actual);
+            Assert.IsTrue(success);
+        }
+
+        [Test]
+        public void GivenTimeSpentOfThreeStaminaIsReducedAndSuccessIsTrue()
+        {
+            Player player = new Player();
+            player.stamina = 100;
+
+            int timeSpent = 3;
+
+            bool success = sut.ReduceStamina(player, timeSpent);
+            int actual = player.stamina;
+            int expected = 50;
 
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
