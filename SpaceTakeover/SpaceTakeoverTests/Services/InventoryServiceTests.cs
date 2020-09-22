@@ -6,7 +6,7 @@ namespace SpaceTakeoverTests
 {
     public class InventoryServiceTests
     {
-        private InventoryService _inventoryService;
+        private InventoryService sut;
         private Inventory inventory;
         private Resource resource;
         private Resource resource2;
@@ -14,7 +14,7 @@ namespace SpaceTakeoverTests
         [SetUp]
         public void Setup()
         {
-            this._inventoryService = new InventoryService();
+            this.sut = new InventoryService();
             this.inventory = new Inventory();
             this.resource = new Resource();
             this.resource2 = new Resource();
@@ -24,10 +24,10 @@ namespace SpaceTakeoverTests
         public void GivenResourceThatCurrentlyExistsInInventoryAddResourceToInventoryUpdatesQuantity()
         {
             resource.quantity = 15;
-            _inventoryService.AddResourceToInventory(inventory, resource);
+            sut.AddResourceToInventory(inventory, resource);
             resource2.name = resource.name;
             resource2.quantity = 25;
-            _inventoryService.AddResourceToInventory(inventory, resource2);
+            sut.AddResourceToInventory(inventory, resource2);
             int expected = 40;
             int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);
@@ -37,7 +37,7 @@ namespace SpaceTakeoverTests
         [Test]
         public void GivenResourceNotInInventoryResourceGetsAdded()
         {
-            _inventoryService.AddResourceToInventory(inventory, resource);
+            sut.AddResourceToInventory(inventory, resource);
             int expected = 1;
             int actual = inventory.resources.Count;
             Assert.AreEqual(expected, actual);
@@ -49,8 +49,8 @@ namespace SpaceTakeoverTests
         {
             int reduceQuantityBy = 5;
             resource.quantity = 15;
-            _inventoryService.AddResourceToInventory(inventory, resource);
-            bool success = _inventoryService.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
+            sut.AddResourceToInventory(inventory, resource);
+            bool success = sut.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
             int expected = 10;
             int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);
@@ -62,8 +62,8 @@ namespace SpaceTakeoverTests
         {
             int reduceQuantityBy = 5;
             resource.quantity = 1;
-            _inventoryService.AddResourceToInventory(inventory, resource);
-            bool success = _inventoryService.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
+            sut.AddResourceToInventory(inventory, resource);
+            bool success = sut.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
             int expected = 1;
             int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);
