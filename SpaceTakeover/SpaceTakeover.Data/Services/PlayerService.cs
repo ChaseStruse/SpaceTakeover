@@ -7,23 +7,24 @@ namespace SpaceTakeover.Data.Services
 {
     public class PlayerService
     {
-        public bool ReduceStamina(Player player, int timeSpent)
+        public bool ReduceStamina(Player player)
         {
             bool success = true;
+            int timeToSpend = player.timeToSpendOnTask;
 
-            if(timeSpent >= 1 && timeSpent <= 2 && player.stamina >= 25)
+            if (timeToSpend >= 1 && timeToSpend <= 2 && player.stamina >= 25)
             {
                 player.stamina -= 25;
             }
-            else if(timeSpent >= 3 && timeSpent <= 5 && player.stamina >= 50)
+            else if(timeToSpend >= 3 && timeToSpend <= 5 && player.stamina >= 50)
             {
                 player.stamina -= 50;
             }
-            else if (timeSpent >= 6 && timeSpent <= 7 && player.stamina >= 75)
+            else if (timeToSpend >= 6 && timeToSpend <= 7 && player.stamina >= 75)
             {
                 player.stamina -= 75;
             }
-            else if (timeSpent == 8 && player.stamina == 100)
+            else if (timeToSpend == 8 && player.stamina == 100)
             {
                 player.stamina -= 100;
             }

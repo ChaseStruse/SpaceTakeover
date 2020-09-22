@@ -8,21 +8,22 @@ namespace SpaceTakeover.Tests.Services
     class PlayerServiceTests
     {
         PlayerService sut;
+        Player player;
         [SetUp]
         public void SetUp()
         {
             sut = new PlayerService();
+            player = new Player();
         }
 
         [Test]
         public void GivenTimeSpentOfZeroStaminaIsNotReducedAndSuccessIsFalse()
         {
-            Player player = new Player();
+
             player.stamina = 100;
+            player.timeToSpendOnTask = 0;
 
-            int timeSpent = 0;
-
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 100;
 
@@ -33,12 +34,11 @@ namespace SpaceTakeover.Tests.Services
         [Test]
         public void GivenTimeSpentOfOneStaminaReducedCorrectly()
         {
-            Player player = new Player();
             player.stamina = 100;
 
-            int timeSpent = 1;
+            player.timeToSpendOnTask = 1;
 
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 75;
 
@@ -49,12 +49,10 @@ namespace SpaceTakeover.Tests.Services
         [Test]
         public void GivenTimeSpentOfTwoStaminaIsReducedAndSuccessIsTrue()
         {
-            Player player = new Player();
             player.stamina = 100;
+            player.timeToSpendOnTask = 2;
 
-            int timeSpent = 2;
-
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 75;
 
@@ -65,12 +63,10 @@ namespace SpaceTakeover.Tests.Services
         [Test]
         public void GivenTimeSpentOfThreeStaminaIsReducedAndSuccessIsTrue()
         {
-            Player player = new Player();
             player.stamina = 100;
+            player.timeToSpendOnTask = 3;
 
-            int timeSpent = 3;
-
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 50;
 
@@ -81,12 +77,10 @@ namespace SpaceTakeover.Tests.Services
         [Test]
         public void GivenTimeSpentOfFourStaminaIsReducedAndSuccessIsTrue()
         {
-            Player player = new Player();
             player.stamina = 100;
+            player.timeToSpendOnTask = 4;
 
-            int timeSpent = 4;
-
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 50;
 
@@ -97,12 +91,10 @@ namespace SpaceTakeover.Tests.Services
         [Test]
         public void GivenTimeSpentOfFiveStaminaIsReducedAndSuccessIsTrue()
         {
-            Player player = new Player();
             player.stamina = 100;
+            player.timeToSpendOnTask = 5;
 
-            int timeSpent = 5;
-
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 50;
 
@@ -113,12 +105,10 @@ namespace SpaceTakeover.Tests.Services
         [Test]
         public void GivenTimeSpentOfSixStaminaIsReducedAndSuccessIsTrue()
         {
-            Player player = new Player();
             player.stamina = 100;
+            player.timeToSpendOnTask = 6;
 
-            int timeSpent = 6;
-
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 25;
 
@@ -129,12 +119,10 @@ namespace SpaceTakeover.Tests.Services
         [Test]
         public void GivenTimeSpentOfSevenStaminaIsReducedAndSuccessIsTrue()
         {
-            Player player = new Player();
             player.stamina = 100;
+            player.timeToSpendOnTask = 7;
 
-            int timeSpent = 7;
-
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 25;
 
@@ -145,12 +133,10 @@ namespace SpaceTakeover.Tests.Services
         [Test]
         public void GivenTimeSpentOfEightStaminaIsReducedAndSuccessIsTrue()
         {
-            Player player = new Player();
             player.stamina = 100;
+            player.timeToSpendOnTask = 8;
 
-            int timeSpent = 8;
-
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 0;
 
@@ -161,12 +147,10 @@ namespace SpaceTakeover.Tests.Services
         [Test]
         public void GivenPlayerStaminaLessThanRequiredStaminaSuccessIsFalseAndQuantityIsUnchanged()
         {
-            Player player = new Player();
             player.stamina = 10;
+            player.timeToSpendOnTask = 8;
 
-            int timeSpent = 8;
-
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 10;
 
@@ -177,12 +161,11 @@ namespace SpaceTakeover.Tests.Services
         [Test]
         public void GivenTimeSpentIsGreaterThanEightStaminaIsUnchangedAndSuccessIsFalse()
         {
-            Player player = new Player();
+
             player.stamina = 10;
+            player.timeToSpendOnTask = 10;
 
-            int timeSpent = 10;
-
-            bool success = sut.ReduceStamina(player, timeSpent);
+            bool success = sut.ReduceStamina(player);
             int actual = player.stamina;
             int expected = 10;
 
