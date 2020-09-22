@@ -22,7 +22,7 @@ namespace SpaceTakeover.Tests.Services
         }
 
         [Test]
-        public void GivenResourceToMineCorrectAmountIsReturned()
+        public void GivenResourceToMineHalfOfResourceQuantityIsReturned()
         {
             resource.strength = 10;
             resource.quantity = 100;
@@ -30,6 +30,19 @@ namespace SpaceTakeover.Tests.Services
             
             int actual = resourceService.mineResource(resource, player);
             int expected = 50;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void GivenPlayerMiningAndResourceStrengthAreEqualFullQuantityReturned()
+        {
+            resource.strength = 10;
+            resource.quantity = 100;
+            player.mining = 10;
+
+            int actual = resourceService.mineResource(resource, player);
+            int expected = 100;
 
             Assert.AreEqual(expected, actual);
         }

@@ -35,15 +35,39 @@ namespace SpaceTakeoverTests
         }
 
         [Test]
+        public void GivenResourceNotInInventoryResourceGetsAdded()
+        {
+            _inventoryService.AddResourceToInventory(inventory, resource);
+            int expected = 1;
+            int actual = inventory.resources.Count;
+            Assert.AreEqual(expected, actual);
+
+        }
+
+        [Test]
         public void GivenExistingInventoryAndResourceReduceQuantityFromInventoryPerformsCorrectly()
         {
             int reduceQuantityBy = 5;
             resource.quantity = 15;
             _inventoryService.AddResourceToInventory(inventory, resource);
-            _inventoryService.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
+            bool success = _inventoryService.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
             int expected = 10;
             int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);
+            Assert.IsTrue(success);
+        }
+
+        [Test]
+        public void GivenAmountToReduceGreaterThanQuantitySuccessIsFalseAndQuantityStaysTheSame()
+        {
+            int reduceQuantityBy = 5;
+            resource.quantity = 1;
+            _inventoryService.AddResourceToInventory(inventory, resource);
+            bool success = _inventoryService.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
+            int expected = 1;
+            int actual = inventory.resources[resource.name].quantity;
+            Assert.AreEqual(expected, actual);
+            Assert.IsFalse(success);
         }
     }
 }
