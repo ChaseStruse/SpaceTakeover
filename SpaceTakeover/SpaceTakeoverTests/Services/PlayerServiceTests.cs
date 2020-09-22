@@ -24,10 +24,14 @@ namespace SpaceTakeover.Tests.Services
             Resource resource = new Resource();
             resource.strength = 10;
 
-            int actual = sut.ReduceStamina(player);
-            int expected = 50;
+            int timeSpent = 1;
+
+            bool success = sut.ReduceStamina(player, timeSpent);
+            int actual = player.stamina;
+            int expected = 75;
 
             Assert.AreEqual(expected, actual);
+            Assert.IsTrue(success);
         }
     }
 }
