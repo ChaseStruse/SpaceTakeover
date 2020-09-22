@@ -9,6 +9,7 @@ namespace SpaceTakeoverTests
         private InventoryService _inventoryService;
         private Inventory inventory;
         private Resource resource;
+        private Resource resource2;
 
         [SetUp]
         public void Setup()
@@ -16,18 +17,19 @@ namespace SpaceTakeoverTests
             this._inventoryService = new InventoryService();
             this.inventory = new Inventory();
             this.resource = new Resource();
+            this.resource2 = new Resource();
         }
 
         [Test]
         public void GivenResourceThatCurrentlyExistsInInventoryAddResourceToInventoryUpdatesQuantity()
         {
-            resource.setQuantity(15);
+            resource.quantity = 15;
             _inventoryService.AddResourceToInventory(inventory, resource);
-            Resource resource2 = new Resource();
-            resource2.setQuantity(25);
+            resource2.name = resource.name;
+            resource2.quantity = 25;
             _inventoryService.AddResourceToInventory(inventory, resource2);
             int expected = 40;
-            int actual = inventory.getResources()[resource.getName()].getQuantity();
+            int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);
 
         }
@@ -35,13 +37,12 @@ namespace SpaceTakeoverTests
         [Test]
         public void GivenExistingInventoryAndResourceReduceQuantityFromInventoryPerformsCorrectly()
         {
-            int reduceQuantity = 5;
-            resource.setQuantity(15);
+            int reduceQuantityBy = 5;
+            resource.quantity = 15;
             _inventoryService.AddResourceToInventory(inventory, resource);
-            Resource resourcePulledFromInventory = new Resource();
-            resourcePulledFromInventory.setQuantity(_inventoryService.ReduceQuantityFromInventory(inventory, resource, reduceQuantity));
+            _inventoryService.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
             int expected = 10;
-            int actual = inventory.getResources()[resource.getName()].getQuantity();
+            int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);
         }
     }
