@@ -84,7 +84,7 @@ namespace SpaceTakeover.Tests.Services
             Player player = new Player();
             player.stamina = 100;
 
-            int timeSpent = 3;
+            int timeSpent = 4;
 
             bool success = sut.ReduceStamina(player, timeSpent);
             int actual = player.stamina;
@@ -100,7 +100,7 @@ namespace SpaceTakeover.Tests.Services
             Player player = new Player();
             player.stamina = 100;
 
-            int timeSpent = 3;
+            int timeSpent = 5;
 
             bool success = sut.ReduceStamina(player, timeSpent);
             int actual = player.stamina;
@@ -116,11 +116,43 @@ namespace SpaceTakeover.Tests.Services
             Player player = new Player();
             player.stamina = 100;
 
-            int timeSpent = 3;
+            int timeSpent = 6;
 
             bool success = sut.ReduceStamina(player, timeSpent);
             int actual = player.stamina;
-            int expected = 50;
+            int expected = 25;
+
+            Assert.AreEqual(expected, actual);
+            Assert.IsTrue(success);
+        }
+
+        [Test]
+        public void GivenTimeSpentOfSevenStaminaIsReducedAndSuccessIsTrue()
+        {
+            Player player = new Player();
+            player.stamina = 100;
+
+            int timeSpent = 7;
+
+            bool success = sut.ReduceStamina(player, timeSpent);
+            int actual = player.stamina;
+            int expected = 25;
+
+            Assert.AreEqual(expected, actual);
+            Assert.IsTrue(success);
+        }
+
+        [Test]
+        public void GivenTimeSpentOfEightStaminaIsReducedAndSuccessIsTrue()
+        {
+            Player player = new Player();
+            player.stamina = 100;
+
+            int timeSpent = 8;
+
+            bool success = sut.ReduceStamina(player, timeSpent);
+            int actual = player.stamina;
+            int expected = 0;
 
             Assert.AreEqual(expected, actual);
             Assert.IsTrue(success);
