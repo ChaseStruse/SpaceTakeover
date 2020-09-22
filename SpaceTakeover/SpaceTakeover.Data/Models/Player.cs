@@ -13,7 +13,9 @@ namespace SpaceTakeover.Models
         public int attack { get; set; }
         public int defense { get; set; }
         public int mining { get; set; }
+        public int timeToSpendOnTask { get; set; }
         public Inventory inventory { get; set; }
+        
 
         public Player()
         {

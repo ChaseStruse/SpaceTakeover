@@ -7,7 +7,7 @@ namespace SpaceTakeover.Tests.Services
 {
     class ResourceServiceTests
     {
-        private ResourceService resourceService;
+        private ResourceService sut;
         private Resource resource;
         private Player player;
         private Inventory inventory;
@@ -15,21 +15,34 @@ namespace SpaceTakeover.Tests.Services
         [SetUp]
         public void Setup()
         {
-            resourceService = new ResourceService();
+            sut = new ResourceService();
             player = new Player();
             inventory = player.inventory;
             resource = new Resource();
         }
 
         [Test]
-        public void GivenResourceToMineCorrectAmountIsReturned()
+        public void GivenResourceToMineHalfOfResourceQuantityIsReturned()
         {
             resource.strength = 10;
             resource.quantity = 100;
             player.mining = 5;
             
-            int actual = resourceService.mineResource(resource, player);
+            int actual = sut.mineResource(resource, player);
             int expected = 50;
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void GivenPlayerMiningAndResourceStrengthAreEqualFullQuantityReturned()
+        {
+            resource.strength = 10;
+            resource.quantity = 100;
+            player.mining = 10;
+
+            int actual = sut.mineResource(resource, player);
+            int expected = 100;
 
             Assert.AreEqual(expected, actual);
         }

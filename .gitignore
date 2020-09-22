@@ -1,6 +1,6 @@
 bin/
 **/bin
 .vs
-**/obj/
+**/obj/**
 obj/
 .vscode
