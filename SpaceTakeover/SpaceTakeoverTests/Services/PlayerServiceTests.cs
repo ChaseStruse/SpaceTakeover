@@ -15,14 +15,26 @@ namespace SpaceTakeover.Tests.Services
         }
 
         [Test]
-        public void GivenResourceToMineStaminaIsDecreasedCorrectly()
+        public void GivenTimeSpentOfZeroStaminaIsNotReducedAndSuccessIsFalse()
         {
             Player player = new Player();
             player.stamina = 100;
-            player.mining = 10;
 
-            Resource resource = new Resource();
-            resource.strength = 10;
+            int timeSpent = 0;
+
+            bool success = sut.ReduceStamina(player, timeSpent);
+            int actual = player.stamina;
+            int expected = 100;
+
+            Assert.AreEqual(expected, actual);
+            Assert.IsFalse(success);
+        }
+
+        [Test]
+        public void GivenTimeSpentOfOneStaminaReducedCorrectly()
+        {
+            Player player = new Player();
+            player.stamina = 100;
 
             int timeSpent = 1;
 
