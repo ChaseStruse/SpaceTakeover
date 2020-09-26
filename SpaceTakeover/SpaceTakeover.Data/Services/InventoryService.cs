@@ -7,15 +7,16 @@ namespace SpaceTakeover.Data.Services
 {
     public class InventoryService
     {
-        public void AddResourceToInventory(Inventory inventory, Resource resource)
+        public void AddResourceToInventory(Inventory inventory, Resource resource, int quantity)
         {
 
             if (inventory.resources.ContainsKey(resource.name))
             {
-                inventory.resources[resource.name].quantity += resource.quantity;
+                inventory.resources[resource.name].quantity += quantity;
             }
             else
             {
+                resource.quantity = quantity;
                 inventory.resources.Add(resource.name, resource);
             }
         }

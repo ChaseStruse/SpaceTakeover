@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace SpaceTakeover
+namespace SpaceTakeover.Data
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            // Game Loop
+            Console.WriteLine("Hello world");
         }
     }
 }
