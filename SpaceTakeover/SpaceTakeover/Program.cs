@@ -13,12 +13,6 @@ namespace SpaceTakeover
             // Game Loop
             Player player = new Player();
 
-            Resource gold = new Resource();
-            gold.name = "Gold";
-            gold.strength = 10;
-            gold.quantity = 100;
-            gold.value = 10.5m;
-
             InventoryService inventoryService = new InventoryService();
             ResourceService resourceService = new ResourceService();
             Console.WriteLine("Please enter Character Name: ");
@@ -47,14 +41,14 @@ namespace SpaceTakeover
                     player.timeToSpendOnTask = int.Parse(hours);
                     if (playerChoice == "1")
                     {
-                        var quantity = resourceService.mineResource(gold, player, player.timeToSpendOnTask);
-                        inventoryService.AddResourceToInventory(player.inventory, gold, quantity);
+                        Resource resourceRetrieved = resourceService.mine(player, player.timeToSpendOnTask);
+                        inventoryService.AddResourceToInventory(player.inventory, resourceRetrieved);
                     }
                     else if (playerChoice == "2") Console.WriteLine("Not implemented");
                     else if (playerChoice == "3") Console.WriteLine("Not implemented");
                     else if (playerChoice == "4") Console.WriteLine("Not implemented");
                     else if (playerChoice == "9") isAwake = false;
-                    Console.WriteLine(player.inventory.resources[gold.name].quantity);
+                    Console.WriteLine(player.inventory.resources.Values);
                 }
             }
 

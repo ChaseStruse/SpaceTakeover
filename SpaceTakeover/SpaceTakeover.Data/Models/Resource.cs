@@ -9,21 +9,27 @@ namespace SpaceTakeover.Data.Models
         public string name { get; set; }
         public decimal value { get; set; }
         public int strength { get; set; }
-        public int quantity { get; set; }
+        public int quantityPerHour { get; set; }
+        public int quantityMined { get; set; }
+        public int quantityInInventory { get; set; }
 
         public Resource()
         {
             this.name = "Test";
             this.value = 1.0m;
             this.strength = 100;
-            this.quantity = 0;
+            this.quantityPerHour = 0;
+            this.quantityMined = 0;
+            quantityInInventory = 0;
         }
-        public Resource(string name, decimal value, int strength, int quantity)
+        public Resource(string name, decimal value, int strength, int quantityPerHour, int quantityMined)
         {
             this.name = name;
             this.value = value;
             this.strength = strength;
-            this.quantity = quantity;
+            this.quantityPerHour = quantityPerHour;
+            this.quantityMined = quantityMined;
+            quantityInInventory = 0;
         }
     }
 }

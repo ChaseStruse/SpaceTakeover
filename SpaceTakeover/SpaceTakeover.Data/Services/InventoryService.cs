@@ -7,30 +7,37 @@ namespace SpaceTakeover.Data.Services
 {
     public class InventoryService
     {
-        public void AddResourceToInventory(Inventory inventory, Resource resource, int quantity)
+        public void AddResourceToInventory(Inventory inventory, Resource resource)
         {
-
-            if (inventory.resources.ContainsKey(resource.name))
+            try
             {
-                inventory.resources[resource.name].quantity += quantity;
+                if (inventory.resources.ContainsKey(resource.name))
+                {
+                    inventory.resources[resource.name].quantityInInventory += resource.quantityMined;
+                }
+                else
+                {
+                    resource.quantityInInventory = resource.quantityMined;
+                    inventory.resources.Add(resource.name, resource);
+                }
+                resource.quantityMined = 0;
             }
-            else
+            catch
             {
-                resource.quantity = quantity;
-                inventory.resources.Add(resource.name, resource);
+                Console.WriteLine("Could not add resource");
             }
         }
 
         public bool ReduceQuantityFromInventory(Inventory inventory, string resourceName, int quantity)
         {
-            int currentQuantity = inventory.resources[resourceName].quantity;
+            int currentQuantity = inventory.resources[resourceName].quantityInInventory;
             int quantityAfterSubtraction = currentQuantity - quantity;
 
             bool success = false;
 
             if(quantityAfterSubtraction >= 0)
             {
-                inventory.resources[resourceName].quantity = quantityAfterSubtraction;
+                inventory.resources[resourceName].quantityInInventory = quantityAfterSubtraction;
                 success = true;
             }
 
