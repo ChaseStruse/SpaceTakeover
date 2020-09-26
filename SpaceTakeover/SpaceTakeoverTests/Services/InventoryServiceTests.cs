@@ -23,11 +23,11 @@ namespace SpaceTakeoverTests
         [Test]
         public void GivenResourceThatCurrentlyExistsInInventoryAddResourceToInventoryUpdatesQuantity()
         {
-            resource.quantity = 15;
-            sut.AddResourceToInventory(inventory, resource);
+            int quantity = 15;
+            sut.AddResourceToInventory(inventory, resource, quantity);
             resource2.name = resource.name;
-            resource2.quantity = 25;
-            sut.AddResourceToInventory(inventory, resource2);
+            quantity = 25;
+            sut.AddResourceToInventory(inventory, resource2, quantity);
             int expected = 40;
             int actual = inventory.resources[resource.name].quantity;
             Assert.AreEqual(expected, actual);
@@ -37,7 +37,7 @@ namespace SpaceTakeoverTests
         [Test]
         public void GivenResourceNotInInventoryResourceGetsAdded()
         {
-            sut.AddResourceToInventory(inventory, resource);
+            sut.AddResourceToInventory(inventory, resource, 1);
             int expected = 1;
             int actual = inventory.resources.Count;
             Assert.AreEqual(expected, actual);
@@ -48,8 +48,8 @@ namespace SpaceTakeoverTests
         public void GivenExistingInventoryAndResourceReduceQuantityFromInventoryPerformsCorrectly()
         {
             int reduceQuantityBy = 5;
-            resource.quantity = 15;
-            sut.AddResourceToInventory(inventory, resource);
+            int quantity = 15;
+            sut.AddResourceToInventory(inventory, resource, quantity);
             bool success = sut.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
             int expected = 10;
             int actual = inventory.resources[resource.name].quantity;
@@ -61,8 +61,8 @@ namespace SpaceTakeoverTests
         public void GivenAmountToReduceGreaterThanQuantitySuccessIsFalseAndQuantityStaysTheSame()
         {
             int reduceQuantityBy = 5;
-            resource.quantity = 1;
-            sut.AddResourceToInventory(inventory, resource);
+            int quantity = 1;
+            sut.AddResourceToInventory(inventory, resource, quantity);
             bool success = sut.ReduceQuantityFromInventory(inventory, resource.name, reduceQuantityBy);
             int expected = 1;
             int actual = inventory.resources[resource.name].quantity;

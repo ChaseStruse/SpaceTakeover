@@ -27,8 +27,9 @@ namespace SpaceTakeover.Tests.Services
             resource.strength = 10;
             resource.quantity = 100;
             player.mining = 5;
-            
-            int actual = sut.mineResource(resource, player);
+            player.stamina = 100;
+            player.timeToSpendOnTask = 1;
+            int actual = sut.mineResource(resource, player, player.timeToSpendOnTask);
             int expected = 50;
 
             Assert.AreEqual(expected, actual);
@@ -40,8 +41,9 @@ namespace SpaceTakeover.Tests.Services
             resource.strength = 10;
             resource.quantity = 100;
             player.mining = 10;
-
-            int actual = sut.mineResource(resource, player);
+            player.stamina = 100;
+            player.timeToSpendOnTask = 1;
+            int actual = sut.mineResource(resource, player, player.timeToSpendOnTask);
             int expected = 100;
 
             Assert.AreEqual(expected, actual);
