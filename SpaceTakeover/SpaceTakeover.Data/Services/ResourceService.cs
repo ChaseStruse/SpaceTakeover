@@ -63,9 +63,15 @@ namespace SpaceTakeover.Data.Services
                     int totalMined = ((int)(resourceToMine.quantityPerHour * percentToBeMined));
                     resourceToMine.quantityMined = totalMined * player.timeToSpendOnTask;
                 }
+                miningMessage(resourceToMine);
                 return resourceToMine;
             }
             else return null;
+        }
+
+        public void miningMessage(Resource resourceMined)
+        {
+            Console.WriteLine($"Congratulations you mined {resourceMined.quantityMined} {resourceMined.name}! These will be placed in your inventory.");
         }
     }
 }

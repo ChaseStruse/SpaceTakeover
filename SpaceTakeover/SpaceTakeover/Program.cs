@@ -48,7 +48,6 @@ namespace SpaceTakeover
                     else if (playerChoice == "3") Console.WriteLine("Not implemented");
                     else if (playerChoice == "4") Console.WriteLine("Not implemented");
                     else if (playerChoice == "9") isAwake = false;
-                    Console.WriteLine(player.inventory.resources.Values);
                 }
             }
 
