@@ -36,9 +36,12 @@ namespace SpaceTakeover
                                       );
                     var playerChoice = Console.ReadLine();
 
-                    Console.WriteLine("How long would you like to do the activity? 1 - 8 hours");
-                    var hours = Console.ReadLine();
-                    player.timeToSpendOnTask = int.Parse(hours);
+                    if (playerChoice != "4" || playerChoice != "9")
+                    {
+                        Console.WriteLine("How long would you like to do the activity? 1 - 8 hours");
+                        var hours = Console.ReadLine();
+                        player.timeToSpendOnTask = int.Parse(hours);
+                    }
                     if (playerChoice == "1")
                     {
                         Resource resourceRetrieved = resourceService.mine(player, player.timeToSpendOnTask);
@@ -48,6 +51,7 @@ namespace SpaceTakeover
                     else if (playerChoice == "3") Console.WriteLine("Not implemented");
                     else if (playerChoice == "4") Console.WriteLine("Not implemented");
                     else if (playerChoice == "9") isAwake = false;
+                    Console.WriteLine("");
                 }
             }
 
