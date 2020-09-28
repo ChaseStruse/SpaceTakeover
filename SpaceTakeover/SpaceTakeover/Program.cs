@@ -32,11 +32,11 @@ namespace SpaceTakeover
                                       "2 - Go Hunting \n" +
                                       "3 - Exercise \n" +
                                       "4 - View Player Stats and Inventory \n" +
-                                      "9 - Exit \n"
+                                      "9 - Sleep \n"
                                       );
                     var playerChoice = Console.ReadLine();
 
-                    if (playerChoice != "4" || playerChoice != "9")
+                    if (playerChoice != "4" && playerChoice != "9")
                     {
                         Console.WriteLine("How long would you like to do the activity? 1 - 8 hours");
                         var hours = Console.ReadLine();
@@ -52,7 +52,9 @@ namespace SpaceTakeover
                     else if (playerChoice == "4") Console.WriteLine("Not implemented");
                     else if (playerChoice == "9") isAwake = false;
                     Console.WriteLine("");
+                    if (player.stamina == 0) Console.WriteLine("Stamina has been depleted");
                 }
+                isAwake = true;
             }
 
         }

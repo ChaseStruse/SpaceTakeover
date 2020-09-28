@@ -34,7 +34,7 @@ namespace SpaceTakeover.Data.Services
         Resource diamond = new Resource()
         {
             name = "Diamond",
-            quantityPerHour = 2,
+            quantityPerHour = 5,
             strength = 12
         };
 
