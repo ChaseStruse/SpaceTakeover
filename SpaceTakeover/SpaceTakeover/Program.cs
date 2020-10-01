@@ -7,6 +7,8 @@ namespace SpaceTakeover
 {
     class Program
     {
+
+
         static void Main(string[] args)
         {
 
@@ -27,13 +29,7 @@ namespace SpaceTakeover
                 days++;
                 while (isAwake)
                 {
-                    Console.WriteLine("Good Morning " + player.name + " lets start the day!");
-                    Console.WriteLine("1 - Go Mining \n" +
-                                      "2 - Go Hunting \n" +
-                                      "3 - Exercise \n" +
-                                      "4 - View Player Stats and Inventory \n" +
-                                      "9 - Sleep \n"
-                                      );
+                    DisplayPlayerMenu();
                     var playerChoice = Console.ReadLine();
 
                     if (playerChoice != "4" && playerChoice != "9")
@@ -44,12 +40,12 @@ namespace SpaceTakeover
                     }
                     if (playerChoice == "1")
                     {
-                        Resource resourceRetrieved = resourceService.mine(player, player.timeToSpendOnTask);
+                        Resource resourceRetrieved = resourceService.Mine(player);
                         inventoryService.AddResourceToInventory(player.inventory, resourceRetrieved);
                     }
                     else if (playerChoice == "2") Console.WriteLine("Not implemented");
                     else if (playerChoice == "3") Console.WriteLine("Not implemented");
-                    else if (playerChoice == "4") Console.WriteLine("Not implemented");
+                    else if (playerChoice == "4") inventoryService.DisplayInventory(player);
                     else if (playerChoice == "9") isAwake = false;
                     Console.WriteLine("");
                     if (player.stamina == 0) Console.WriteLine("Stamina has been depleted");
@@ -57,6 +53,17 @@ namespace SpaceTakeover
                 isAwake = true;
             }
 
+        }
+
+        private static void DisplayPlayerMenu()
+        {
+            Console.WriteLine("Choose from the list of activities");
+            Console.WriteLine("1 - Go Mining \n" +
+                                      "2 - Go Hunting \n" +
+                                      "3 - Exercise \n" +
+                                      "4 - View Player Stats and Inventory \n" +
+                                      "9 - Sleep \n"
+                                      );
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using SpaceTakeover.Data.Models;
+using SpaceTakeover.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -42,6 +43,17 @@ namespace SpaceTakeover.Data.Services
             }
 
             return success;
+        }
+
+        public void DisplayInventory(Player player)
+        {
+            Console.WriteLine("Items in Inventory");
+            Console.WriteLine("-------------------------------------------------");
+            foreach (Resource item in player.inventory.resources.Values)
+            {
+                Console.WriteLine($"{item.name} - {item.quantityInInventory}");
+            }
+            Console.WriteLine("-------------------------------------------------");
         }
     }
 }
