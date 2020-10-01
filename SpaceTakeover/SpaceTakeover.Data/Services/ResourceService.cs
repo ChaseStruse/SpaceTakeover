@@ -43,14 +43,10 @@ namespace SpaceTakeover.Data.Services
             if (playerService.ReduceStamina(player))
             {
                 Random random = new Random();
-                var randNum = random.Next(0, 100);
+                //var randNum = random.Next(0, 100);
+                var randNum = 100;
+                Resource resourceToMine = getResourceToMine(randNum);
 
-                Resource resourceToMine;
-
-                if (randNum >= 0 && randNum <= 35) resourceToMine = coal;
-                else if (randNum >= 36 && randNum <= 70) resourceToMine = iron;
-                else if (randNum >= 71 && randNum <= 90) resourceToMine = gold;
-                else resourceToMine = diamond;
 
                 int difference = resourceToMine.strength - player.mining;
                 if (difference <= 0)
@@ -69,6 +65,16 @@ namespace SpaceTakeover.Data.Services
             else return null;
         }
 
+        private Resource getResourceToMine(int randNum)
+        {
+            var resourceToMine = new Resource();
+            if (randNum >= 0 && randNum <= 35) resourceToMine = coal;
+            else if (randNum >= 36 && randNum <= 70) resourceToMine = iron;
+            else if (randNum >= 71 && randNum <= 90) resourceToMine = gold;
+            else resourceToMine = diamond;
+
+            return (resourceToMine);
+        }
         public void miningMessage(Resource resourceMined)
         {
             Console.WriteLine($"Congratulations you mined {resourceMined.quantityMined} {resourceMined.name}! These will be placed in your inventory.");

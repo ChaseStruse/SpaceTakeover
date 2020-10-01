@@ -33,7 +33,6 @@ namespace SpaceTakeover.Data.Services
                 success = false;
             }
 
-            player.timeToSpendOnTask = 0;
             return success;
         }
     }
