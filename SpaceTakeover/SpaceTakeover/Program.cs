@@ -1,55 +1,69 @@
-﻿using SpaceTakeover.Data.Models;
+﻿using SpaceTakeover.DAL.Models;
 using SpaceTakeover.Data.Services;
-using SpaceTakeover.Models;
 using System;
 
 namespace SpaceTakeover
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
+            IInventoryService inventoryService = new InventoryService();
+            IResourceService resourceService = new ResourceService();
+            IPlayerService playerService = new PlayerService();
 
-            // Game Loop
             Player player = new Player();
 
-            InventoryService inventoryService = new InventoryService();
-            ResourceService resourceService = new ResourceService();
+            // Game Loop
             Console.WriteLine("Please enter Character Name: ");
-            player.name = Console.ReadLine();
+            player.Name = Console.ReadLine();
             bool playing = true;
             bool isAwake = true;
-
             int days = 0;
             while (playing == true)
             {
-                player.stamina = 100;
+                player.Stamina = 100;
                 days++;
+                Console.WriteLine($"START OF DAY {days}");
                 while (isAwake)
                 {
-                    if (player.stamina == 0) Console.WriteLine("Stamina has been depleted");
-                    DisplayPlayerMenu();
-                    var playerChoice = Console.ReadLine();
-
-                    if (playerChoice != "4" && playerChoice != "9") GetTotalHoursToSpendOnTask(player);
-
-                    if (playerChoice == "1")
+                    if (player.Stamina == 0)
                     {
-                        Resource resourceRetrieved = resourceService.Mine(player);
-                        inventoryService.AddResourceToInventory(player.inventory, resourceRetrieved);
-                    }
-                    else if (playerChoice == "2") Console.WriteLine("Not implemented");
-                    else if (playerChoice == "3") Console.WriteLine("Not implemented");
-                    else if (playerChoice == "4") inventoryService.DisplayInventory(player);
-                    else if (playerChoice == "9")
-                    {
-                        Console.WriteLine("Stamina has been replenished");
+                        Console.WriteLine($"Stamina has been depleted, {player.Name} its time to go to bed!");
                         isAwake = false;
                     }
-                    Console.WriteLine("");
+                    else
+                    {
+                        DisplayPlayerMenu();
+                        var playerChoice = Console.ReadLine();
 
+                        if (playerChoice != "4" && playerChoice != "9")
+                        {
+                            GetTotalHoursToSpendOnTask(player);
+                        }
+                        if (playerService.ReduceStamina(player))
+                        {
+                            if (playerChoice == "1")
+                            {
+                                var randomNumberToDetermineResource = new Random().Next(0, 100);
+                                Resource resourceRetrieved = resourceService.Mine(player, randomNumberToDetermineResource);
+                                inventoryService.AddResourceToInventory(player.Inventory, resourceRetrieved);
+                            }
+                            else if (playerChoice == "2") Console.WriteLine("Not implemented");
+                            else if (playerChoice == "3") Console.WriteLine("Not implemented");
+                            else if (playerChoice == "4") inventoryService.DisplayInventory(player);
+                            else if (playerChoice == "9")
+                            {
+                                Console.WriteLine("Stamina has been replenished");
+                                isAwake = false;
+                            }
+                            Console.WriteLine("");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"You do not have enough stamina, current stamina is {player.Stamina}");
+                        }
+                    }
                 }
                 isAwake = true;
             }
@@ -73,7 +87,7 @@ namespace SpaceTakeover
         {
             Console.WriteLine("How long would you like to do the activity? 1 - 8 hours");
             var hours = Console.ReadLine();
-            player.timeToSpendOnTask = int.Parse(hours);
+            player.TimeToSpendOnTask = int.Parse(hours);
         }
     }
 }

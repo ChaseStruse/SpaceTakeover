@@ -1,59 +1,65 @@
-﻿using SpaceTakeover.Data.Models;
-using SpaceTakeover.Models;
+﻿using SpaceTakeover.DAL.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SpaceTakeover.Data.Services
 {
-    public class ResourceService
+    public interface IResourceService
     {
-        private PlayerService playerService = new PlayerService();
+        Resource Mine(Player player, int randomNumberToDetermineResource);
+        Resource GetResourceToMine(int randNum);
+        void CalculateTotalAmountMined(double difference, Resource resourceToMine, Player player);
+        void MiningMessage(Resource resourceMined);
+    }
+    public class ResourceService : IResourceService
+    {
+        private readonly Resource coal;
+        private readonly Resource iron;
+        private readonly Resource gold;
+        private readonly Resource diamond;
 
-        Resource coal = new Resource()
+        public ResourceService()
         {
-            name = "Coal",
-            quantityPerHour = 50,
-            strength = 5
-        };
-
-        Resource iron = new Resource()
-        {
-            name = "Iron",
-            quantityPerHour = 35,
-            strength = 7
-        };
-
-        Resource gold = new Resource()
-        {
-            name = "Gold",
-            quantityPerHour = 20,
-            strength = 10
-        };
-
-        Resource diamond = new Resource()
-        {
-            name = "Diamond",
-            quantityPerHour = 5,
-            strength = 12
-        };
-
-        public Resource Mine(Player player)
-        {
-            if (playerService.ReduceStamina(player))
+            coal = new Resource()
             {
-                var randNum = new Random().Next(0, 100);
-                var resourceToMine = getResourceToMine(randNum);
-                var difference = resourceToMine.strength - player.mining;
+                Name = "Coal",
+                QuantityPerHour = 50,
+                Strength = 5
+            };
 
-                calculateTotalAmountMined(difference, resourceToMine, player);
-                miningMessage(resourceToMine);
-                return resourceToMine;
-            }
-            else return null;
+            iron = new Resource()
+            {
+                Name = "Iron",
+                QuantityPerHour = 35,
+                Strength = 7
+            };
+
+            gold = new Resource()
+            {
+                Name = "Gold",
+                QuantityPerHour = 20,
+                Strength = 10
+            };
+
+            diamond = new Resource()
+            {
+                Name = "Diamond",
+                QuantityPerHour = 5,
+                Strength = 12
+            };
         }
 
-        private Resource getResourceToMine(int randNum)
+        public Resource Mine(Player player, int randomNumberToDetermineResource)
+        {
+            var resourceToMine = GetResourceToMine(randomNumberToDetermineResource);
+            var difference = resourceToMine.Strength - player.Mining;
+
+            CalculateTotalAmountMined(difference, resourceToMine, player);
+            MiningMessage(resourceToMine);
+            return resourceToMine;
+
+        }
+
+        public Resource GetResourceToMine(int randNum)
         {
             var resourceToMine = new Resource();
 
@@ -65,23 +71,23 @@ namespace SpaceTakeover.Data.Services
             return (resourceToMine);
         }
 
-        private void calculateTotalAmountMined(double difference, Resource resourceToMine, Player player)
+        public void CalculateTotalAmountMined(double difference, Resource resourceToMine, Player player)
         {
             if (difference <= 0)
             {
-                resourceToMine.quantityMined = resourceToMine.quantityPerHour * player.timeToSpendOnTask;
+                resourceToMine.QuantityMined = resourceToMine.QuantityPerHour * player.TimeToSpendOnTask;
             }
             else
             {
-                double percentToBeMined = (double)player.mining / (double)resourceToMine.strength;
-                int totalMined = ((int)(resourceToMine.quantityPerHour * percentToBeMined));
-                resourceToMine.quantityMined = totalMined * player.timeToSpendOnTask;
+                double percentToBeMined = (double)player.Mining / (double)resourceToMine.Strength;
+                int totalMined = ((int)(resourceToMine.QuantityPerHour * percentToBeMined));
+                resourceToMine.QuantityMined = totalMined * player.TimeToSpendOnTask;
             }
         }
 
-        public void miningMessage(Resource resourceMined)
+        public void MiningMessage(Resource resourceMined)
         {
-            Console.WriteLine($"Congratulations you mined {resourceMined.quantityMined} {resourceMined.name}! These will be placed in your inventory.");
+            Console.WriteLine($"Congratulations you mined {resourceMined.QuantityMined} {resourceMined.Name}! These will be placed in your inventory.");
         }
     }
 }

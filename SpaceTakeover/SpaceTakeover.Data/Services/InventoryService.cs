@@ -1,27 +1,30 @@
-﻿using SpaceTakeover.Data.Models;
-using SpaceTakeover.Models;
+﻿using SpaceTakeover.DAL.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SpaceTakeover.Data.Services
 {
-    public class InventoryService
+    public interface IInventoryService
+    {
+        void AddResourceToInventory(Inventory inventory, Resource resource);
+        bool ReduceQuantityFromInventory(Inventory inventory, string resourceName, int quantity);
+        void DisplayInventory(Player player);
+    }
+    public class InventoryService : IInventoryService
     {
         public void AddResourceToInventory(Inventory inventory, Resource resource)
         {
             try
             {
-                if (inventory.resources.ContainsKey(resource.name))
+                if (inventory.Resources.ContainsKey(resource.Name))
                 {
-                    inventory.resources[resource.name].quantityInInventory += resource.quantityMined;
+                    inventory.Resources[resource.Name].QuantityInInventory += resource.QuantityMined;
                 }
                 else
                 {
-                    resource.quantityInInventory = resource.quantityMined;
-                    inventory.resources.Add(resource.name, resource);
+                    resource.QuantityInInventory = resource.QuantityMined;
+                    inventory.Resources.Add(resource.Name, resource);
                 }
-                resource.quantityMined = 0;
+                resource.QuantityMined = 0;
             }
             catch
             {
@@ -31,14 +34,14 @@ namespace SpaceTakeover.Data.Services
 
         public bool ReduceQuantityFromInventory(Inventory inventory, string resourceName, int quantity)
         {
-            int currentQuantity = inventory.resources[resourceName].quantityInInventory;
+            int currentQuantity = inventory.Resources[resourceName].QuantityInInventory;
             int quantityAfterSubtraction = currentQuantity - quantity;
 
             bool success = false;
 
             if(quantityAfterSubtraction >= 0)
             {
-                inventory.resources[resourceName].quantityInInventory = quantityAfterSubtraction;
+                inventory.Resources[resourceName].QuantityInInventory = quantityAfterSubtraction;
                 success = true;
             }
 
@@ -49,9 +52,9 @@ namespace SpaceTakeover.Data.Services
         {
             Console.WriteLine("Items in Inventory");
             Console.WriteLine("-------------------------------------------------");
-            foreach (Resource item in player.inventory.resources.Values)
+            foreach (Resource item in player.Inventory.Resources.Values)
             {
-                Console.WriteLine($"{item.name} - {item.quantityInInventory}");
+                Console.WriteLine($"{item.Name} - {item.QuantityInInventory}");
             }
             Console.WriteLine("-------------------------------------------------");
         }

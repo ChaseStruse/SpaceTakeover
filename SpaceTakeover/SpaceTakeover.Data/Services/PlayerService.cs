@@ -1,32 +1,32 @@
-﻿using SpaceTakeover.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿using SpaceTakeover.DAL.Models;
 namespace SpaceTakeover.Data.Services
 {
-    public class PlayerService
+    public interface IPlayerService
+    {
+        bool ReduceStamina(Player player);
+    }
+    public class PlayerService : IPlayerService
     {
         public bool ReduceStamina(Player player)
         {
             bool success = true;
-            int timeToSpend = player.timeToSpendOnTask;
+            int timeToSpend = player.TimeToSpendOnTask;
 
-            if (timeToSpend >= 1 && timeToSpend <= 2 && player.stamina >= 25)
+            if (timeToSpend >= 1 && timeToSpend <= 2 && player.Stamina >= 25)
             {
-                player.stamina -= 25;
+                player.Stamina -= 25;
             }
-            else if(timeToSpend >= 3 && timeToSpend <= 5 && player.stamina >= 50)
+            else if(timeToSpend >= 3 && timeToSpend <= 5 && player.Stamina >= 50)
             {
-                player.stamina -= 50;
+                player.Stamina -= 50;
             }
-            else if (timeToSpend >= 6 && timeToSpend <= 7 && player.stamina >= 75)
+            else if (timeToSpend >= 6 && timeToSpend <= 7 && player.Stamina >= 75)
             {
-                player.stamina -= 75;
+                player.Stamina -= 75;
             }
-            else if (timeToSpend == 8 && player.stamina == 100)
+            else if (timeToSpend == 8 && player.Stamina == 100)
             {
-                player.stamina -= 100;
+                player.Stamina -= 100;
             }
             else
             {
