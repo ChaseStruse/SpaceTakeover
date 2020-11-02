@@ -22,5 +22,6 @@ jobs:
       working-directory: SpaceTakeover
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      working-directory: SpaceTakeover
     - name: Test
       run: dotnet test --no-restore --verbosity normal
