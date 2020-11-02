@@ -25,3 +25,4 @@ jobs:
       working-directory: SpaceTakeover
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      working-directory: SpaceTakeover
