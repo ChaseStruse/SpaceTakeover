@@ -45,9 +45,7 @@ namespace SpaceTakeover
                         {
                             if (playerChoice == "1")
                             {
-                                var randomNumberToDetermineResource = new Random().Next(0, 100);
-                                Resource resourceRetrieved = resourceService.Mine(player, randomNumberToDetermineResource);
-                                inventoryService.AddResourceToInventory(player.Inventory, resourceRetrieved);
+                                Mine(resourceService, player, inventoryService);
                             }
                             else if (playerChoice == "2") Console.WriteLine("Not implemented");
                             else if (playerChoice == "3") Console.WriteLine("Not implemented");
@@ -88,6 +86,13 @@ namespace SpaceTakeover
             Console.WriteLine("How long would you like to do the activity? 1 - 8 hours");
             var hours = Console.ReadLine();
             player.TimeToSpendOnTask = int.Parse(hours);
+        }
+
+        private static void Mine(IResourceService resourceService, Player player, IInventoryService inventoryService)
+        {
+            var randomNumberToDetermineResource = new Random().Next(0, 100);
+            Resource resourceRetrieved = resourceService.Mine(player, randomNumberToDetermineResource);
+            inventoryService.AddResourceToInventory(player.Inventory, resourceRetrieved);
         }
     }
 }
